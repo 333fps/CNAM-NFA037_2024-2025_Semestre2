@@ -12,7 +12,6 @@ int main(void)
 			if (err != 1)
 			{
 				printf("Erreur de saisie\n");
-				err = scanf("%*s");
 				continue;
 			}
 		}

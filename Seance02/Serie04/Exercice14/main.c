@@ -15,12 +15,6 @@ int main(void)
 	}
 
 	{
-		/*
-			Selon l'énoncé, on veut donc un tableau de entier * entier éléments
-			En x on a les chiffres de 1 à entier
-			En y on a les chiffres de 1 à entier
-			En gros une matrice de entier * entier...
-		*/
 		int tailleTableau = entier * entier;
 
 		{

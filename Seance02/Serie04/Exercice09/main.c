@@ -13,8 +13,6 @@ int main(void)
 		if (err != 1)
 		{
 			printf("Erreur de saisie\n");
-			err = scanf("%*[^\n]");
-			err = scanf("%*c");
 		}
 
 	} while (err != 1 || entier < 100);

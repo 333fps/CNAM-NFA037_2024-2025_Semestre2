@@ -15,20 +15,20 @@ int main(void)
 
 	switch (choix)
 	{
-	case 1:
-		printf("Vous avez choisi %d : Café court non sucré\n", choix);
-		break;
-	case 2:
-		printf("Vous avez choisi %d :  Café court sucré\n", choix);
-		break;
-	case 3:
-		printf("Vous avez choisi %d : Café long non sucré\n", choix);
-		break;
-	case 4:
-		printf("Vous avez choisi %d : Café long sucré\n", choix);
-		break;
-	default:
-		printf("Vous avez choisi %d : Choix de boisson non valide !\n", choix);
+		case 1:
+			printf("Vous avez choisi %d : Café court non sucré\n", choix);
+			break;
+		case 2:
+			printf("Vous avez choisi %d :  Café court sucré\n", choix);
+			break;
+		case 3:
+			printf("Vous avez choisi %d : Café long non sucré\n", choix);
+			break;
+		case 4:
+			printf("Vous avez choisi %d : Café long sucré\n", choix);
+			break;
+		default:
+			printf("Vous avez choisi %d : Choix de boisson non valide !\n", choix);
 	}
 
 	return 0;
