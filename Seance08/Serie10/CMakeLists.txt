@@ -6,6 +6,9 @@ if(${CMAKE_SOURCE_DIR} STREQUAL ${CMAKE_BINARY_DIR})
 	message(FATAL_ERROR "In-source builds not allowed. Please make a build directory and run CMake from there.")
 endif()
 
+add_subdirectory(Exercice_cours01)
+add_subdirectory(Exercice_cours02)
+
 add_subdirectory(Exercice01)
 add_subdirectory(Exercice02)
 add_subdirectory(Exercice03)
