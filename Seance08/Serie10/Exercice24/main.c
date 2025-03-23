@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-#include <limits.h> 
+#include <limits.h>
 
 #define FILENAME "Exercice24.dat"
 #define NUM_INTEGERS 200

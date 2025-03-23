@@ -6,11 +6,20 @@ int main( void )
 	float Tableau[5];
 	int err;
 	size_t i;
-	struct __attribute__((packed))
+#ifdef __linux__
+	struct
+	{
+		size_t position;
+		float plusPetit;
+	} __attribute__( ( packed ) ) data;
+#endif
+#ifdef _WIN32
+	struct
 	{
 		size_t position;
 		float plusPetit;
 	} data;
+#endif
 
 	for ( i = 0; i < sizeof( Tableau ) / sizeof( float ); ++i )
 	{
