@@ -1,38 +1,42 @@
 #include <stdio.h>
-#include <string.h>
+#include <stdlib.h>
 
 #define BUFFER_SIZE 100
 #define FILENAME "Exercice11.txt"
 
 int main( void )
 {
-	FILE* fichier = NULL;
-	char phrase[BUFFER_SIZE];
+	FILE* file = NULL;
+	char s[BUFFER_SIZE];
 
-	printf( "Programme d'enregistrement de texte\n" );
 	printf( "Saisir une phrase: " );
-	if ( fgets( phrase, BUFFER_SIZE, stdin ) == NULL )
+	if ( fgets( s, BUFFER_SIZE, stdin ) == NULL )
 	{
 		printf( "Erreur de lecture\n" );
-		return 1;
+		return EXIT_FAILURE;
 	}
 
-	fichier = fopen( FILENAME, "w" );
-	if ( fichier == NULL )
+	file = fopen( FILENAME, "w" );
+	if ( file == NULL )
 	{
 		printf( "Impossible d'ouvrir le fichier %s\n", FILENAME );
-		return 1;
+		return EXIT_FAILURE;
 	}
 
-	if ( fprintf( fichier, "%s", phrase ) < 0 )
+	if ( fprintf( file, "%s", s ) < 0 )
 	{
 		printf( "Erreur lors de l'écriture dans le fichier\n" );
-		fclose( fichier );
-		return 1;
+		fclose( file );
+		return EXIT_FAILURE;
 	}
 
-	fclose( fichier );
+	if ( fclose( file ) == EOF )
+	{
+		printf( "Erreur lors de la fermeture du fichier %s\n", FILENAME );
+		return EXIT_FAILURE;
+	}
+
 	printf( "Phrase enregistrée avec succès dans %s\n", FILENAME );
 
-	return 0;
+	return EXIT_SUCCESS;
 }

@@ -12,7 +12,7 @@ int main( void )
 	file = fopen( FILENAME, "r" );
 	if ( !file )
 	{
-		printf( "Impossible d'ouvir le fichier %s.\n", FILENAME );
+		printf( "Impossible d'ouvrir le fichier %s.\n", FILENAME );
 
 		return 1;
 	}

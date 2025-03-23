@@ -1,24 +1,39 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+#define FILENAME "Exercice08.txt"
 
 int main( void )
 {
+	FILE* file = NULL;
+	double reel;
 	int i;
-	float f;
-	FILE* fic = NULL;
 
-	fic = fopen( "Exercice08.txt", "r+" );
-	if ( fic != NULL )
+	file = fopen( FILENAME, "r" );
+	if ( !file )
 	{
-		for ( i = 0; i < 3; i++ )
-		{
-			printf( "Reel numero %d : ", ( i + 1 ) );
-			(void)fscanf( fic, "%f ", &f );
-			printf( "%.2f \n", (double)f );
-		}
-		fclose( fic );
+		printf( "Impossible d'ouvrir le fichier %s\n", FILENAME );
+		return EXIT_FAILURE;
 	}
-	else
-		printf( "Ouverture impossible\n" );
 
-	return 0;
+	for ( i = 0; i < 3; ++i )
+	{
+		if ( fscanf( file, "%lf", &reel ) != 1 )
+		{
+			printf( "Erreur de lecture\n" );
+			fclose( file );
+			return EXIT_FAILURE;
+		}
+
+		printf( "Nombre #%d: %f\n", i, reel );
+	}
+
+	if ( fclose( file ) == EOF )
+	{
+		printf( "Erreur lors de la fermeture du fichier %s\n", FILENAME );
+		return EXIT_FAILURE;
+	}
+
+	return EXIT_SUCCESS;
 }

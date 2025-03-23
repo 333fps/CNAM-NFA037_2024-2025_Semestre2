@@ -1,21 +1,29 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+#define FILENAME "Exercice03.txt"
 
 int main( void )
 {
-	FILE* fichier = NULL;
+	FILE* file = NULL;
 
-	fichier = fopen( "Exercice03.txt", "a" );
-	if ( fichier != NULL )
+	file = fopen( FILENAME, "w" );
+	if ( !file )
 	{
-		fputc( '1', fichier );
-		fputs( "\n", fichier );
-		fputc( '2', fichier );
-		fclose( fichier );
-	}
-	else
-	{
-		printf( "Ouverture impossible" );
+		printf( "Impossible de créer le fichier %s\n", FILENAME );
+		return EXIT_FAILURE;
 	}
 
-	return 0;
+	fputc( '1', file );
+	fputs( "\n", file );
+	fputc( '2', file );
+
+	if ( fclose( file ) == EOF )
+	{
+		printf( "Erreur lors de la fermeture du fichier %s\n", FILENAME );
+		return EXIT_FAILURE;
+	}
+
+	return EXIT_SUCCESS;
 }

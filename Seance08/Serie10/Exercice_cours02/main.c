@@ -42,6 +42,7 @@ enum Result EcritBin( void )
 	int i;
 	double T1[NUM_DOUBLE];
 	FILE* file = NULL;
+	size_t itemsWritten;
 
 	for ( i = 0; i < NUM_DOUBLE; ++i )
 	{
@@ -58,12 +59,24 @@ enum Result EcritBin( void )
 	if ( !file )
 	{
 		printf( "Impossible de créer le fichier %s\n", FILENAME );
-
 		return FAILURE;
 	}
 
-	fwrite( T1, sizeof( double ), NUM_DOUBLE, file );
-	fclose( file );
+	itemsWritten = fwrite( T1, sizeof( double ), NUM_DOUBLE, file );
+	itemsWritten = fwrite( T1, sizeof( double ), NUM_DOUBLE, file );
+	if ( itemsWritten != NUM_DOUBLE )
+	{
+		printf( "Erreur lors de l'écriture du tableau: %u éléments écrits sur %d attendus\n",
+			(unsigned)itemsWritten, NUM_DOUBLE );
+		fclose( file );
+		return FAILURE;
+	}
+
+	if ( fclose( file ) == EOF )
+	{
+		printf( "Erreur lors de la fermeture du fichier\n" );
+		return FAILURE;
+	}
 
 	return SUCCESS;
 }
@@ -73,17 +86,29 @@ enum Result LitBin( void )
 	double T2[NUM_DOUBLE];
 	FILE* file = NULL;
 	int i;
+	size_t itemsRead;
 
 	file = fopen( FILENAME, "rb" );
 	if ( !file )
 	{
 		printf( "Impossible d'ouvrir le fichier %s\n", FILENAME );
-
 		return FAILURE;
 	}
 
-	fread( T2, sizeof( double ), NUM_DOUBLE, file );
-	fclose( file );
+	itemsRead = fread( T2, sizeof( double ), NUM_DOUBLE, file );
+	if ( itemsRead != NUM_DOUBLE )
+	{
+		printf( "Erreur lors de la lecture du tableau: %u éléments lus sur %d attendus\n",
+			(unsigned)itemsRead, NUM_DOUBLE );
+		fclose( file );
+		return FAILURE;
+	}
+
+	if ( fclose( file ) == EOF )
+	{
+		printf( "Erreur lors de la fermeture du fichier\n" );
+		return FAILURE;
+	}
 
 	printf( "Tableau de réels après lecture dans %s:\n", FILENAME );
 	for ( i = 0; i < NUM_DOUBLE; ++i )

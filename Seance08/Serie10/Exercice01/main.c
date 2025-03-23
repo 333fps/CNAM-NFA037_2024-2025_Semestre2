@@ -1,24 +1,42 @@
 #include <stdio.h>
+#include <stdlib.h>
+
+#define FILENAME "Exercice01.txt"
 
 int main( void )
 {
-	char lettre;
-	FILE* fichier = NULL;
+	char c;
+	FILE* file = NULL;
 
-	printf( "Veuillez saisir une lettre: " );
-	(void)scanf( " %c", &lettre );
+	printf( "Saisissez un caractère au clavier: " );
 
-	fichier = fopen( "Exercice01.txt", "a" );
-	if ( fichier != NULL )
+	if ( scanf( "%c", &c ) != 1 )
 	{
-		fputc( lettre, fichier );
-		fclose( fichier );
-		printf( "Lettre ecrite" );
-	}
-	else
-	{
-		printf( "Ouverture impossible" );
+		printf( "Erreur de saisie\n" );
+		return EXIT_FAILURE;
 	}
 
-	return 0;
+	file = fopen( FILENAME, "w" );
+	if ( !file )
+	{
+		printf( "Impossible de créer le fichier %s\n", FILENAME );
+		return EXIT_FAILURE;
+	}
+
+	if ( fputc( c, file ) == EOF )
+	{
+		printf( "Erreur lors de l'écriture dans le fichier %s\n", FILENAME );
+		fclose( file );
+		return EXIT_FAILURE;
+	}
+
+	if ( fclose( file ) == EOF )
+	{
+		printf( "Erreur lors de la fermeture du fichier %s\n", FILENAME );
+		return EXIT_FAILURE;
+	}
+
+	printf( "Le caractère '%c' a été écrit dans le fichier.\n", c );
+
+	return EXIT_SUCCESS;
 }

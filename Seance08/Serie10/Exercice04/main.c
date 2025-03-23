@@ -1,27 +1,41 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+#define FILENAME "Exercice04.txt"
 
 int main( void )
 {
-	int entier;
+	FILE* file = NULL;
 	int i;
-	FILE* fichier = NULL;
 
-	fichier = fopen( "Exercice04.txt", "a" );
-	if ( fichier != NULL )
+	file = fopen( FILENAME, "a" );
+	if ( !file )
 	{
-		for ( i = 0; i < 5; ++i )
+		printf( "Impossible de créer le fichier %s\n", FILENAME );
+		return EXIT_FAILURE;
+	}
+
+	for ( i = 0; i < 5; ++i )
+	{
+		int j = 0;
+		printf( "Saisir un entier: " );
+
+		if ( scanf( "%d", &j ) != 1 )
 		{
-			printf( "Veuillez saisir un entier: " );
-			(void)scanf( "%d", &entier );
-			fprintf( fichier, "%d ", entier );
+			printf( "Erreur de saisie\n" );
+			fclose( file );
+			return EXIT_FAILURE;
 		}
 
-		fclose( fichier );
-	}
-	else
-	{
-		printf( "Ouverture impossible" );
+		fprintf( file, "%d ", j );
 	}
 
-	return 0;
+	if ( fclose( file ) == EOF )
+	{
+		printf( "Erreur lors de la fermeture du fichier %s\n", FILENAME );
+		return EXIT_FAILURE;
+	}
+
+	return EXIT_SUCCESS;
 }

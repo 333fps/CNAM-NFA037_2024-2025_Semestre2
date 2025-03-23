@@ -1,32 +1,33 @@
 #include <stdio.h>
-#include <string.h>
+#include <stdlib.h>
 
 #define FILENAME "Exercice12.txt"
 
 int main( void )
 {
-	int numChar = 0;
 	FILE* file = NULL;
+	int count = 0;
+	int c;
 
 	file = fopen( FILENAME, "r" );
 	if ( !file )
 	{
-		printf( "Impossible d'ouvir le fichier %s.\n", FILENAME );
-
-		return 1;
+		printf( "Impossible d'ouvrir le fichier %s\n", FILENAME );
+		return EXIT_FAILURE;
 	}
 
-	while ( !feof( file ) )
+	while ( ( c = fgetc( file ) ) != '\n' && c != EOF )
 	{
-		fgetc( file );
-		++numChar;
+		++count;
 	}
 
-	numChar -= 1;
+	if ( fclose( file ) == EOF )
+	{
+		printf( "Erreur lors de la fermeture du fichier %s\n", FILENAME );
+		return EXIT_FAILURE;
+	}
 
-	printf( "Le fichier contient %d caractères", numChar );
+	printf( "La phrase contient %d caractères\n", count );
 
-	fclose( file );
-
-	return 0;
+	return EXIT_SUCCESS;
 }

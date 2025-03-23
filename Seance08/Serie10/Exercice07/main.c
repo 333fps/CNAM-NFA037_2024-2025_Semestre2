@@ -1,29 +1,49 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+#define FILENAME "Exercice07.txt"
 
 int main( void )
 {
-	int n;
+	FILE* file = NULL;
+	int nbReels;
 	int i;
-	float f;
-	FILE* fic = NULL;
 
-	printf( "Combien de reels voulez-vous saisir ? " );
-	(void)scanf( "%d", &n );
-
-	fic = fopen( "Exercice07.txt", "a" );
-	if ( fic != NULL )
+	printf( "Saisir le nombre de réels voulus: " );
+	if ( scanf( "%d", &nbReels ) != 1 )
 	{
-		for ( i = 0; i < n; i++ )
-		{
-			printf( "Saisir un reel : " );
-			(void)scanf( "%f", &f );
-			fprintf( fic, "%.2f ", (double)f );
-		}
-		fclose( fic );
-		printf( "Nombres enregistres\n" );
+		printf( "Erreur de saisie\n" );
+		return EXIT_FAILURE;
 	}
-	else
-		printf( "Ouverture impossible\n" );
 
-	return 0;
+	file = fopen( FILENAME, "w" );
+	if ( !file )
+	{
+		printf( "Impossible de créer le fichier %s\n", FILENAME );
+		return EXIT_FAILURE;
+	}
+
+	for ( i = 0; i < nbReels; ++i )
+	{
+		double r;
+
+		printf( "Saisir un réel: " );
+		if ( scanf( "%lf", &r ) != 1 )
+		{
+			printf( "Erreur de saisie\n" );
+			fclose( file );
+			return EXIT_FAILURE;
+		}
+
+		fprintf( file, "%f ", r );
+	}
+
+	if ( fclose( file ) == EOF )
+	{
+		printf( "Erreur lors de la fermeture du fichier %s\n", FILENAME );
+		return EXIT_FAILURE;
+	}
+
+	return EXIT_SUCCESS;
 }

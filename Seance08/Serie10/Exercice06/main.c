@@ -1,50 +1,59 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+#define FILENAME "Exercice06.txt"
+#define NUM_INT 6
+
+double average( int* tab );
 
 int main( void )
 {
-	int T[5];
+	FILE* file = NULL;
+	int T[NUM_INT];
 	int i;
-	FILE* fichier = NULL;
-	float moyenne;
 
-	for ( i = 0; i < 5; ++i )
+	for ( i = 0; i < NUM_INT; ++i )
 	{
-		printf( "Veuillez saisir un entier: " );
-		(void)scanf( "%d", &T[i] );
-	}
+		printf( "Saisir un entier: " );
 
-	fichier = fopen( "Exercice06.txt", "a" );
-	if ( fichier != NULL )
-	{
-		for ( i = 0; i < 5; ++i )
+		if ( scanf( "%d", &T[i] ) != 1 )
 		{
-			fprintf( fichier, "%d\n", T[i] );
+			printf( "Erreur de saisie\n" );
+			return EXIT_FAILURE;
 		}
-
-		fclose( fichier );
-	}
-	else
-	{
-		printf( "Ouverture impossible" );
 	}
 
-	moyenne = 0.f;
-	for ( i = 0; i < 5; ++i )
+	file = fopen( FILENAME, "w" );
+	if ( !file )
 	{
-		moyenne += (float)T[i];
-	}
-	moyenne /= 5;
-
-	fichier = fopen( "Exercice06.txt", "a" );
-	if ( fichier != NULL )
-	{
-		fprintf( fichier, "Moyenne: %f\n", (double)moyenne );
-		fclose( fichier );
-	}
-	else
-	{
-		printf( "Ouverture impossible" );
+		printf( "Impossible de créer le fichier %s\n", FILENAME );
+		return EXIT_FAILURE;
 	}
 
-	return 0;
+	for ( i = 0; i < NUM_INT; ++i )
+	{
+		fprintf( file, "%d\n", T[i] );
+	}
+	fprintf( file, "%f\n", average( T ) );
+
+	if ( fclose( file ) == EOF )
+	{
+		printf( "Erreur lors de la fermeture du fichier %s\n", FILENAME );
+		return EXIT_FAILURE;
+	}
+
+	return EXIT_SUCCESS;
+}
+
+double average( int* tab )
+{
+	int i;
+	double sum = 0;
+	for ( i = 0; i < NUM_INT; ++i )
+	{
+		sum += (double)tab[i];
+	}
+
+	return sum / (double)NUM_INT;
 }
