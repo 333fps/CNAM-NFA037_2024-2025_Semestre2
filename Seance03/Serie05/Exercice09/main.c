@@ -6,7 +6,7 @@ int main( void )
 	float Tableau[5];
 	int err;
 	size_t i;
-	struct
+	struct __attribute__((packed))
 	{
 		size_t position;
 		float plusPetit;

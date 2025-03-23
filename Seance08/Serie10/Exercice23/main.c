@@ -80,31 +80,31 @@ void Nb_Mot( const char* nomFichier )
 
 int Compter_Mots( const char* texte )
 {
-	wchar_t wbuf[MAX_PHRASE];
-	int count = 0;
-	int inWord = 0;
-	size_t i;
-	size_t len;
+    wchar_t wbuf[MAX_PHRASE];
+    int count = 0;
+    int inWord = 0;
+    size_t i;
+    size_t len;
 
-	len = mbstowcs( wbuf, texte, MAX_PHRASE );
-	if ( len == (size_t)-1 )
-	{
-		fprintf( stderr, "Erreur de conversion de la chaîne UTF-8 en wchar_t.\n" );
-		return EXIT_SUCCESS;
-	}
+    len = mbstowcs( wbuf, texte, MAX_PHRASE );
+    if ( len == (size_t)-1 )
+    {
+        fprintf( stderr, "Erreur de conversion de la chaîne UTF-8 en wchar_t.\n" );
+        return EXIT_SUCCESS;
+    }
 
-	for ( i = 0; i < len; i++ )
-	{
-		if ( iswspace( wbuf[i] ) )
-		{
-			inWord = 0;
-		}
-		else if ( !inWord )
-		{
-			count++;
-			inWord = 1;
-		}
-	}
+    for ( i = 0; i < len; i++ )
+    {
+        if ( iswspace( (wint_t)wbuf[i] ) )
+        {
+            inWord = 0;
+        }
+        else if ( !inWord )
+        {
+            count++;
+            inWord = 1;
+        }
+    }
 
-	return count;
+    return count;
 }

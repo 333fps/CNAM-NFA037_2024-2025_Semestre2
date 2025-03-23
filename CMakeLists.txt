@@ -70,6 +70,7 @@ set(CLANG_C_COMPILE_FLAGS
 
 	-Wno-unsafe-buffer-usage
 	-Wno-covered-switch-default
+	-Wno-disabled-macro-expansion
 
 )
 

@@ -13,3 +13,7 @@ if(DEFINED C_COMPILE_FLAGS)
 else()
 	message(STATUS "No custom flags defined for ${PROJECT_NAME}")
 endif()
+
+if(LINUX)
+	target_link_libraries(${PROJECT_NAME} m)
+endif()
