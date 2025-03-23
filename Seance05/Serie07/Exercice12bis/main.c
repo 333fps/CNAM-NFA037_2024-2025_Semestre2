@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 
 int Miroir( char* heure, int indice, int longueur );
@@ -13,13 +14,13 @@ int main( void )
 	if ( err != 1 )
 	{
 		printf( "Erreur de saisie\n" );
-		return 1;
+		return EXIT_FAILURE;
 	}
 
 	if ( strlen( heure ) != 5 || heure[2] != 'H' )
 	{
 		printf( "Format d'heure invalide (attendu: xxHxx)\n" );
-		return 1;
+		return EXIT_FAILURE;
 	}
 
 	if ( Miroir( heure, 0, (int)strlen( heure ) - 1 ) )
@@ -31,14 +32,14 @@ int main( void )
 		printf( "L'heure %s n'est pas une heure miroir\n", heure );
 	}
 
-	return 0;
+	return EXIT_SUCCESS;
 }
 
 int Miroir( char* heure, int debut, int fin )
 {
 	if ( debut >= fin )
 	{
-		return 1;
+		return EXIT_FAILURE;
 	}
 
 	if ( heure[debut] == 'H' )
@@ -52,7 +53,7 @@ int Miroir( char* heure, int debut, int fin )
 
 	if ( heure[debut] != heure[fin] )
 	{
-		return 0;
+		return EXIT_SUCCESS;
 	}
 
 	return Miroir( heure, debut + 1, fin - 1 );

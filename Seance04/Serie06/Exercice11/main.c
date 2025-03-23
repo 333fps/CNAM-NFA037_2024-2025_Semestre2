@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 void EstPair( int i );
 
@@ -12,12 +13,12 @@ int main( void )
 	if ( err != 1 )
 	{
 		printf( "Erreur de saisie\n" );
-		return 1;
+		return EXIT_FAILURE;
 	}
 
 	EstPair( i );
 
-	return 0;
+	return EXIT_SUCCESS;
 }
 
 void EstPair( int i )

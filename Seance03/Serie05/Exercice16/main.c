@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 int main( void )
 {
@@ -28,5 +29,5 @@ int main( void )
 		printf( "%d\t %d\n", Table[0][i], Table[1][i] );
 	}
 
-	return 0;
+	return EXIT_SUCCESS;
 }

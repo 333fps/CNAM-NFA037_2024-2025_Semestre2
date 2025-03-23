@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 void Modif( float T[], int n );
 void Affiche( float T[], int n );
@@ -13,7 +14,7 @@ int main( void )
 	Modif( T, 5 );
 	Affiche( T, 5 );
 
-	return 0;
+	return EXIT_SUCCESS;
 }
 
 void Modif( float T[], int n )

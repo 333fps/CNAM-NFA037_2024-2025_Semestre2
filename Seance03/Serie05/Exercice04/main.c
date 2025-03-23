@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 int main( void )
 {
@@ -14,7 +15,7 @@ int main( void )
 	if ( err != 1 )
 	{
 		printf( "Erreur de lecture\n" );
-		return 1;
+		return EXIT_FAILURE;
 	}
 
 	for ( i = 0; i < sizeof( Tableau ) / sizeof( int ); ++i )
@@ -32,5 +33,5 @@ int main( void )
 		printf( "Le nombre %d n'est pas dans le tableau\n", nombre );
 	}
 
-	return 0;
+	return EXIT_SUCCESS;
 }

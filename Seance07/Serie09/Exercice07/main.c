@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 #define MAX_LENGTH 100
 
@@ -19,7 +20,7 @@ int main( void )
 	Modif( mot );
 	Affiche( mot );
 
-	return 0;
+	return EXIT_SUCCESS;
 }
 
 void Modif( char* mot )

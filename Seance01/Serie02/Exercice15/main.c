@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 int main( void )
 {
@@ -14,10 +15,10 @@ int main( void )
 	if ( err != 1 )
 	{
 		printf( "Erreur de saisie\n" );
-		return 1;
+		return EXIT_FAILURE;
 	}
 
 	printf( "Le périmètre du cercle est : %f\n", 2. * Pi * rayonDuCercle );
 
-	return 0;
+	return EXIT_SUCCESS;
 }

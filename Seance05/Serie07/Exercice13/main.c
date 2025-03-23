@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 int fibonacci( int n );
 
@@ -12,23 +13,23 @@ int main( void )
 	if ( err != 1 )
 	{
 		printf( "Erreur de saisie\n" );
-		return 1;
+		return EXIT_FAILURE;
 	}
 
 	printf( "Nombre de couples de lapins après %d mois: %d\n", n, fibonacci( n ) );
 
-	return 0;
+	return EXIT_SUCCESS;
 }
 
 int fibonacci( int n )
 {
 	if ( n == 0 )
 	{
-		return 0;
+		return EXIT_SUCCESS;
 	}
 	else if ( n == 1 )
 	{
-		return 1;
+		return EXIT_FAILURE;
 	}
 	else
 	{

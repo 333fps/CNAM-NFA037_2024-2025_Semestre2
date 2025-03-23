@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 void maFonction( int* x );
 
@@ -12,7 +13,7 @@ int main( void )
 	maFonction( p );
 	printf( "Après: x = %d\n", x );
 
-	return 0;
+	return EXIT_SUCCESS;
 }
 
 void maFonction( int* x )

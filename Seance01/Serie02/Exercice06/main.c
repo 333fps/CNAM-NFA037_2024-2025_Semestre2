@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 int main( void )
 {
@@ -12,12 +13,12 @@ int main( void )
 	if ( err != 1 )
 	{
 		printf( "Erreur de lecture\n" );
-		return 1;
+		return EXIT_FAILURE;
 	}
 
 	result = 3 * x * x - 1;
 
 	printf( "Le resultat est %f\n", (double)result );
 
-	return 0;
+	return EXIT_SUCCESS;
 }

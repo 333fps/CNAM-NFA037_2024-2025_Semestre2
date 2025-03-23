@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 float minNB( float, float );
 
@@ -12,7 +13,7 @@ int main( void )
 	if ( err != 1 )
 	{
 		printf( "Erreur de saisie\n" );
-		return 1;
+		return EXIT_FAILURE;
 	}
 
 	printf( "Saisir le deuxième réel b: " );
@@ -20,12 +21,12 @@ int main( void )
 	if ( err != 1 )
 	{
 		printf( "Erreur de saisie\n" );
-		return 1;
+		return EXIT_FAILURE;
 	}
 
 	printf( "Le plus petit nombre entre %f et %f est %f\n", (double)a, (double)b, (double)minNB( a, b ) );
 
-	return 0;
+	return EXIT_SUCCESS;
 }
 
 float minNB( float a, float b )

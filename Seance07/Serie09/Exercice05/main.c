@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 
 struct Personne
@@ -19,5 +20,5 @@ int main( void )
 
 	printf( "vous vous appelez %s %s\n", p1.Prenom, p1.Nom );
 
-	return 0;
+	return EXIT_SUCCESS;
 }

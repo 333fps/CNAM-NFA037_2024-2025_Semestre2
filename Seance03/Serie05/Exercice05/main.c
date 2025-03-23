@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 int main( void )
 {
@@ -13,7 +14,7 @@ int main( void )
 		if ( err != 1 )
 		{
 			printf( "Erreur de lecture\n" );
-			return 1;
+			return EXIT_FAILURE;
 		}
 	}
 
@@ -22,5 +23,5 @@ int main( void )
 		printf( "Tableau[%lu] = %f\n", (unsigned long)i, (double)Tableau[i] );
 	}
 
-	return 0;
+	return EXIT_SUCCESS;
 }

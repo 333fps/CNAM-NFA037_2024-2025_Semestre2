@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 unsigned long Suite( unsigned long n );
 
@@ -12,19 +13,19 @@ int main( void )
 	if ( err != 1 )
 	{
 		printf( "Erreur de saisie\n" );
-		return 1;
+		return EXIT_FAILURE;
 	}
 
 	printf( "Suite de %lu: %lu\n", x, Suite( x ) );
 
-	return 0;
+	return EXIT_SUCCESS;
 }
 
 unsigned long Suite( unsigned long n )
 {
 	if ( n == 1 )
 	{
-		return 1;
+		return EXIT_FAILURE;
 	}
 	else
 	{

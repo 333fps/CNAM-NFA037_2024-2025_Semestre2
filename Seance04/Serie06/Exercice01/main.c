@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 int produit( int, int, int );
 
@@ -12,7 +13,7 @@ int main( void )
 	if ( err != 1 )
 	{
 		printf( "Erreur de saisie\n" );
-		return 1;
+		return EXIT_FAILURE;
 	}
 
 	printf( "Saisir le deuxième entier b: " );
@@ -20,7 +21,7 @@ int main( void )
 	if ( err != 1 )
 	{
 		printf( "Erreur de saisie\n" );
-		return 1;
+		return EXIT_FAILURE;
 	}
 
 	printf( "Saisir le troisième entier c: " );
@@ -28,12 +29,12 @@ int main( void )
 	if ( err != 1 )
 	{
 		printf( "Erreur de saisie\n" );
-		return 1;
+		return EXIT_FAILURE;
 	}
 
 	printf( "Le produit de %d, %d et %d est %d\n", a, b, c, produit( a, b, c ) );
 
-	return 0;
+	return EXIT_SUCCESS;
 }
 
 int produit( int a, int b, int c )

@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 int main( void )
 {
@@ -14,7 +15,7 @@ int main( void )
 		if ( err != 1 )
 		{
 			printf( "Erreur de lecture\n" );
-			return 1;
+			return EXIT_FAILURE;
 		}
 
 		if ( Tableau[i] > plusGrand )
@@ -30,5 +31,5 @@ int main( void )
 
 	printf( "Le plus grand nombre est %f\n", (double)plusGrand );
 
-	return 0;
+	return EXIT_SUCCESS;
 }

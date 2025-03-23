@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <limits.h>
 
 float puissance( int, int );
@@ -13,7 +14,7 @@ int main( void )
 	if ( err != 1 )
 	{
 		printf( "Erreur de saisie\n" );
-		return 1;
+		return EXIT_FAILURE;
 	}
 
 	printf( "Saisir le deuxième entier b: " );
@@ -21,12 +22,12 @@ int main( void )
 	if ( err != 1 )
 	{
 		printf( "Erreur de saisie\n" );
-		return 1;
+		return EXIT_FAILURE;
 	}
 
 	printf( "Le résultat de %d puissance %d est %f\n", a, b, (double)puissance( a, b ) );
 
-	return 0;
+	return EXIT_SUCCESS;
 }
 
 float puissance( int a, int b )
@@ -38,13 +39,13 @@ float puissance( int a, int b )
 	if ( a == 0 && b < 0 )
 	{
 		printf( "Erreur: Division par zéro (0^%d)\n", b );
-		return 0.0f;
+		return .0f;
 	}
 
 	if ( a == 0 && b == 0 )
 	{
 		printf( "Erreur: 0^0 n'est pas défini\n" );
-		return 0.0f;
+		return .0f;
 	}
 
 	abs_b = ( b < 0 ) ? -b : b;
@@ -58,7 +59,7 @@ float puissance( int a, int b )
 		if ( resultat == 0.0f )
 		{
 			printf( "Erreur: Division par zéro\n" );
-			return 0.0f;
+			return .0f;
 		}
 		resultat = 1.0f / resultat;
 	}

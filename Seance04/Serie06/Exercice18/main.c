@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 static int n;
 int Modif( void );
@@ -12,14 +13,14 @@ int main( void )
 	if ( err != 1 )
 	{
 		printf( "Erreur de saisie\n" );
-		return 1;
+		return EXIT_FAILURE;
 	}
 
 	Modif();
 
 	printf( "La valeur de n est maintenant %d\n", n );
 
-	return 0;
+	return EXIT_SUCCESS;
 }
 
 int Modif( void )

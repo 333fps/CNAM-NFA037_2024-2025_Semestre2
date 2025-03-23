@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 
 struct BilletDeTrain
@@ -28,7 +29,7 @@ int main( void )
 	if ( err != 1 )
 	{
 		printf( "Erreur de saisie\n" );
-		return 1;
+		return EXIT_FAILURE;
 	}
 
 	printf( "Prix du billet: " );
@@ -36,7 +37,7 @@ int main( void )
 	if ( err != 1 )
 	{
 		printf( "Erreur de saisie\n" );
-		return 1;
+		return EXIT_FAILURE;
 	}
 
 	printf( "Numero du train: " );
@@ -44,7 +45,7 @@ int main( void )
 	if ( err != 1 )
 	{
 		printf( "Erreur de saisie\n" );
-		return 1;
+		return EXIT_FAILURE;
 	}
 
 	printf( "Numero de voiture: " );
@@ -52,7 +53,7 @@ int main( void )
 	if ( err != 1 )
 	{
 		printf( "Erreur de saisie\n" );
-		return 1;
+		return EXIT_FAILURE;
 	}
 
 	printf( "Numero de place: " );
@@ -60,7 +61,7 @@ int main( void )
 	if ( err != 1 )
 	{
 		printf( "Erreur de saisie\n" );
-		return 1;
+		return EXIT_FAILURE;
 	}
 
 	printf( "Gare de depart: " );
@@ -68,7 +69,7 @@ int main( void )
 	if ( err != 1 )
 	{
 		printf( "Erreur de saisie\n" );
-		return 1;
+		return EXIT_FAILURE;
 	}
 
 	printf( "Jour de depart (1-31): " );
@@ -76,7 +77,7 @@ int main( void )
 	if ( err != 1 || billet.jourDepart < 1 || billet.jourDepart > 31 )
 	{
 		printf( "Jour invalide\n" );
-		return 1;
+		return EXIT_FAILURE;
 	}
 
 	printf( "Heure de depart (0-23): " );
@@ -84,7 +85,7 @@ int main( void )
 	if ( err != 1 || billet.heureDepart < 0 || billet.heureDepart > 23 )
 	{
 		printf( "Heure invalide\n" );
-		return 1;
+		return EXIT_FAILURE;
 	}
 
 	printf( "Gare d'arrivee: " );
@@ -92,7 +93,7 @@ int main( void )
 	if ( err != 1 )
 	{
 		printf( "Erreur de saisie\n" );
-		return 1;
+		return EXIT_FAILURE;
 	}
 
 	printf( "Jour d'arrivee (1-31): " );
@@ -100,7 +101,7 @@ int main( void )
 	if ( err != 1 || billet.jourArrivee < 1 || billet.jourArrivee > 31 )
 	{
 		printf( "Jour invalide\n" );
-		return 1;
+		return EXIT_FAILURE;
 	}
 
 	printf( "Heure d'arrivee (0-23): " );
@@ -108,7 +109,7 @@ int main( void )
 	if ( err != 1 || billet.heureArrivee < 0 || billet.heureArrivee > 23 )
 	{
 		printf( "Heure invalide\n" );
-		return 1;
+		return EXIT_FAILURE;
 	}
 
 	printf( "\n======================================\n" );
@@ -126,5 +127,5 @@ int main( void )
 	printf( "PRIX: %.2f EUR\n", (double)billet.prix );
 	printf( "======================================\n" );
 
-	return 0;
+	return EXIT_SUCCESS;
 }

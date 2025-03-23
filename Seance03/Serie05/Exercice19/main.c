@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 int main( void )
 {
@@ -29,5 +30,5 @@ int main( void )
 
 	printf( "Le candidatle plus agé est le numéro %d et est âgé de %d ans.\n", Tableau[indexAgeMaxi][0], Tableau[indexAgeMaxi][1] );
 
-	return 0;
+	return EXIT_SUCCESS;
 }

@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 
 #define FILENAME "Exercice18.txt"
@@ -24,7 +25,7 @@ int main( void )
 	if ( file == NULL )
 	{
 		printf( "Ouverture du fichier impossible\n" );
-		return 1;
+		return EXIT_FAILURE;
 	}
 
 	while ( ( c = fgetc( file ) ) != EOF )
@@ -52,7 +53,7 @@ int main( void )
 	if ( file == NULL )
 	{
 		printf( "Erreur: Impossible de rouvrir le fichier\n" );
-		return 1;
+		return EXIT_FAILURE;
 	}
 
 	while ( ( c = fgetc( file ) ) != EOF )
@@ -62,5 +63,5 @@ int main( void )
 
 	fclose( file );
 
-	return 0;
+	return EXIT_SUCCESS;
 }

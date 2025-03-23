@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 void Somme( int a, int b );
 
@@ -13,7 +14,7 @@ int main( void )
 	printf( "Dans le main : \t" );
 	printf( "%d\t", a );
 	printf( "%d\n", b );
-	return 0;
+	return EXIT_SUCCESS;
 }
 
 void Somme( int a, int b )

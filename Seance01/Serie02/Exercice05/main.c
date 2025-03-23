@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 int main( void )
 {
@@ -10,5 +11,5 @@ int main( void )
 
 	printf( "La valeur de l'entier est %d, la valeur du nombre réel est %f\n", entier, (double)reel );
 
-	return 0;
+	return EXIT_SUCCESS;
 }

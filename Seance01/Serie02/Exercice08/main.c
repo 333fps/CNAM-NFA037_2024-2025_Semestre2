@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 int main( void )
 {
@@ -7,5 +8,5 @@ int main( void )
 
 	printf( "Le nombre Pi: %.2f\n", (double)Pi );
 
-	return 0;
+	return EXIT_SUCCESS;
 }

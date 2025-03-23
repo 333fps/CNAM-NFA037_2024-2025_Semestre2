@@ -13,20 +13,20 @@ int main( void )
 	if ( err != 1 )
 	{
 		printf( "Erreur de lecture\n" );
-		return 1;
+		return EXIT_FAILURE;
 	}
 
 	if ( nombreCases == 0 )
 	{
 		printf( "Le tableau doit avoir au moins une case\n" );
-		return 1;
+		return EXIT_FAILURE;
 	}
 
 	tableau = malloc( nombreCases * sizeof( float ) );
 	if ( tableau == NULL )
 	{
 		printf( "Erreur d'allocation mémoire\n" );
-		return 1;
+		return EXIT_FAILURE;
 	}
 
 	for ( i = 0; i < nombreCases; ++i )
@@ -37,7 +37,7 @@ int main( void )
 		{
 			printf( "Erreur de lecture\n" );
 			free( tableau );
-			return 1;
+			return EXIT_FAILURE;
 		}
 	}
 
@@ -48,5 +48,5 @@ int main( void )
 
 	free( tableau );
 
-	return 0;
+	return EXIT_SUCCESS;
 }

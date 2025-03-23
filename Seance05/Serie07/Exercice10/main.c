@@ -13,7 +13,7 @@ int main( void )
 	if ( scanf( "%d", &n ) != 1 || n <= 0 )
 	{
 		printf( "Erreur: nombre invalide\n" );
-		return 1;
+		return EXIT_FAILURE;
 	}
 
 	TabEntiers = (int*)malloc( (size_t)n * sizeof( int ) );
@@ -21,7 +21,7 @@ int main( void )
 	if ( TabEntiers == NULL )
 	{
 		printf( "Erreur d'allocation mémoire\n" );
-		return 1;
+		return EXIT_FAILURE;
 	}
 
 	for ( i = 0; i < n; i++ )
@@ -32,7 +32,7 @@ int main( void )
 
 	printf( "Somme des éléments du tableau: %d\n", somme( TabEntiers, 0, n ) );
 
-	return 0;
+	return EXIT_SUCCESS;
 }
 
 int somme( int TabEntiers[], int indice, int n )

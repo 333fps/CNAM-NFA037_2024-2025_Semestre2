@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 int main( void )
 {
@@ -11,13 +12,13 @@ int main( void )
 	if ( erreur != 1 )
 	{
 		printf( "Erreur de saisie\n" );
-		return 1;
+		return EXIT_FAILURE;
 	}
 
 	if ( note < 0 || note > 20 )
 	{
 		printf( "La note doit être comprise entre 0 et 20\n" );
-		return 1;
+		return EXIT_FAILURE;
 	}
 
 	if ( note == 0.f )
@@ -53,5 +54,5 @@ int main( void )
 		printf( "Très bien\n" );
 	}
 
-	return 0;
+	return EXIT_SUCCESS;
 }

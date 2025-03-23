@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 int main( void )
 {
@@ -6,5 +7,5 @@ int main( void )
 	zz = 'y';
 	printf( "La variable zz contient la lettre %c.\n", zz );
 
-	return 0;
+	return EXIT_SUCCESS;
 }

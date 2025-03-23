@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <math.h>
 
 int main( void )
@@ -14,7 +15,7 @@ int main( void )
 	if ( err != 1 )
 	{
 		printf( "Erreur de saisie\n" );
-		return 1;
+		return EXIT_FAILURE;
 	}
 
 	carre = pow( entier, 2 );
@@ -22,5 +23,5 @@ int main( void )
 
 	printf( "Le nombre %d élevé à la puissance de 2 vaut: %d.\n", entier, resultat );
 
-	return 0;
+	return EXIT_SUCCESS;
 }

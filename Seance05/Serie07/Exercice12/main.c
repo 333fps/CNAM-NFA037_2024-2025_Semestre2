@@ -14,14 +14,14 @@ int main( void )
 	if ( scanf( "%d", &n ) != 1 || n <= 0 )
 	{
 		printf( "Erreur: nombre invalide\n" );
-		return 1;
+		return EXIT_FAILURE;
 	}
 
 	TabEntiers = (int*)malloc( (size_t)n * sizeof( int ) );
 	if ( TabEntiers == NULL )
 	{
 		printf( "Erreur d'allocation mémoire\n" );
-		return 1;
+		return EXIT_FAILURE;
 	}
 
 	for ( i = 0; i < n; i++ )
@@ -44,7 +44,7 @@ int main( void )
 
 	free( TabEntiers );
 
-	return 0;
+	return EXIT_SUCCESS;
 }
 
 void Affiche( int TabEntiers[], int indice, int n )
@@ -62,7 +62,7 @@ int ESTPALINDROME( int TabEntiers[], int indice, int n )
 {
 	if ( n == 0 )
 	{
-		return 1;
+		return EXIT_FAILURE;
 	}
 	else
 	{
@@ -72,7 +72,7 @@ int ESTPALINDROME( int TabEntiers[], int indice, int n )
 		}
 		else
 		{
-			return 0;
+			return EXIT_SUCCESS;
 		}
 	}
 }

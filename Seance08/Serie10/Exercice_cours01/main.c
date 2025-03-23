@@ -9,25 +9,25 @@ enum Result
 	FAILURE
 };
 
-enum Result EcritBin( void );
-enum Result LitBin( void );
+enum Result BinaryWrite( void );
+enum Result BinaryRead( void );
 
 int main( void )
 {
 	enum Result result;
 
-	result = EcritBin();
+	result = BinaryWrite();
 	if ( result == FAILURE )
 	{
-		printf( "La fonction EcritBin a échoué\n" );
+		printf( "La fonction BinaryWrite a échoué\n" );
 
 		return EXIT_FAILURE;
 	}
 
-	result = LitBin();
+	result = BinaryRead();
 	if ( result == FAILURE )
 	{
-		printf( "La fonction LitBin a échoué\n" );
+		printf( "La fonction BinaryRead a échoué\n" );
 
 		return EXIT_FAILURE;
 	}
@@ -35,7 +35,7 @@ int main( void )
 	return EXIT_SUCCESS;
 }
 
-enum Result EcritBin( void )
+enum Result BinaryWrite( void )
 {
 	FILE* file = NULL;
 	int a = 10;
@@ -74,7 +74,7 @@ enum Result EcritBin( void )
 	return SUCCESS;
 }
 
-enum Result LitBin( void )
+enum Result BinaryRead( void )
 {
 	FILE* file = NULL;
 	int a;

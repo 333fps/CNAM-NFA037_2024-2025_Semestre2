@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 int main( void )
 {
@@ -11,12 +12,12 @@ int main( void )
 	if ( err != 1 )
 	{
 		printf( "Erreur de saisie\n" );
-		return 1;
+		return EXIT_FAILURE;
 	}
 
 	nombre < 0 ? nombre = -nombre : nombre;
 
 	printf( "La valeur absolue de ce nombre est : %f\n", (double)nombre );
 
-	return 0;
+	return EXIT_SUCCESS;
 }

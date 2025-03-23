@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 int main( void )
 {
@@ -18,7 +19,7 @@ int main( void )
 		if ( err != 1 )
 		{
 			printf( "Erreur de lecture\n" );
-			return 1;
+			return EXIT_FAILURE;
 		}
 	}
 
@@ -40,5 +41,5 @@ int main( void )
 
 	printf( "Le plus petit nombre est %f et est situé à la position: %lu\n", (double)data.plusPetit, (unsigned long)data.position );
 
-	return 0;
+	return EXIT_SUCCESS;
 }

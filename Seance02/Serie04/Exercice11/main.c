@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 int main( void )
 {
@@ -22,7 +23,7 @@ int main( void )
 	if ( compteur >= 3 && codeUtilisateur != codeSecret )
 	{
 		printf( "Carte avalée\n" );
-		return 0;
+		return EXIT_SUCCESS;
 	}
 
 	printf( "Veuillez saisir le montant de votre retrait:" );
@@ -42,5 +43,5 @@ int main( void )
 	}
 	printf( "Tiens, voilà tes %d euros\n", montant );
 
-	return 0;
+	return EXIT_SUCCESS;
 }

@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 void Affiche( int T[], int n );
 void Affecte( int val, int T[], int n );
@@ -10,7 +11,7 @@ int main( void )
 	Affecte( 1, T, 5 );
 	Affiche( T, 5 );
 
-	return 0;
+	return EXIT_SUCCESS;
 }
 
 void Affiche( int T[], int n )

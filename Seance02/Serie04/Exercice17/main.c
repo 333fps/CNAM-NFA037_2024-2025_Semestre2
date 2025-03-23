@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 #define MIN_HAUTEUR 3
 
@@ -14,13 +15,13 @@ int main( void )
 	if ( err != 1 )
 	{
 		printf( "Erreur de saisie\n" );
-		return 1;
+		return EXIT_FAILURE;
 	}
 
 	if ( hauteur < MIN_HAUTEUR )
 	{
 		printf( "La hauteur doit être >= %d\n", MIN_HAUTEUR );
-		return 1;
+		return EXIT_FAILURE;
 	}
 
 	largeur = ( hauteur % 2 == 0 ) ? hauteur - 1 : hauteur;
@@ -40,5 +41,5 @@ int main( void )
 		printf( "*\n" );
 	}
 
-	return 0;
+	return EXIT_SUCCESS;
 }

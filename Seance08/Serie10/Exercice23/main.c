@@ -34,7 +34,7 @@ int Ecrit_Mots( const char* nomFichier )
 		if ( fgets( phrase, sizeof( phrase ), stdin ) == NULL )
 		{
 			fprintf( stderr, "Erreur de lecture de l'entrée.\n" );
-			return 0;
+			return EXIT_SUCCESS;
 		}
 		phrase[strcspn( phrase, "\n" )] = '\0';
 
@@ -49,12 +49,12 @@ int Ecrit_Mots( const char* nomFichier )
 	if ( fp == NULL )
 	{
 		perror( "Erreur d'ouverture du fichier en écriture" );
-		return 0;
+		return EXIT_SUCCESS;
 	}
 	fwrite( phrase, sizeof( char ), strlen( phrase ), fp );
 	fclose( fp );
 	printf( "Phrase écrite avec succès dans le fichier.\n" );
-	return 1;
+	return EXIT_FAILURE;
 }
 
 void Nb_Mot( const char* nomFichier )
@@ -90,7 +90,7 @@ int Compter_Mots( const char* texte )
 	if ( len == (size_t)-1 )
 	{
 		fprintf( stderr, "Erreur de conversion de la chaîne UTF-8 en wchar_t.\n" );
-		return 0;
+		return EXIT_SUCCESS;
 	}
 
 	for ( i = 0; i < len; i++ )

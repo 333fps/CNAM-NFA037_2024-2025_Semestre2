@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 int main( void )
 {
@@ -10,13 +11,13 @@ int main( void )
 	if ( err != 1 )
 	{
 		printf( "Erreur de saisie\n" );
-		return 1;
+		return EXIT_FAILURE;
 	}
 
 	if ( entier <= 0 )
 	{
 		printf( "L' entier doit être positif\n" );
-		return 1;
+		return EXIT_FAILURE;
 	}
 
 	{
@@ -27,5 +28,5 @@ int main( void )
 		}
 	}
 
-	return 0;
+	return EXIT_SUCCESS;
 }

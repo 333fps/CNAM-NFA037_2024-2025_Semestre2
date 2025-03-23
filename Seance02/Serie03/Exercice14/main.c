@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <math.h>
 
 int main( void )
@@ -12,7 +13,7 @@ int main( void )
 	if ( err != 1 )
 	{
 		printf( "Erreur de saisie\n" );
-		return 1;
+		return EXIT_FAILURE;
 	}
 
 	printf( "Entrez le nombre b: " );
@@ -20,7 +21,7 @@ int main( void )
 	if ( err != 1 )
 	{
 		printf( "Erreur de saisie\n" );
-		return 1;
+		return EXIT_FAILURE;
 	}
 
 	printf( "Entrez le nombre c: " );
@@ -28,7 +29,7 @@ int main( void )
 	if ( err != 1 )
 	{
 		printf( "Erreur de saisie\n" );
-		return 1;
+		return EXIT_FAILURE;
 	}
 
 	if ( a == 0. )
@@ -71,5 +72,5 @@ int main( void )
 		}
 	}
 
-	return 0;
+	return EXIT_SUCCESS;
 }

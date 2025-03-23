@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 int EstPremier( int n );
 
@@ -12,12 +13,12 @@ int main( void )
 	if ( err != 1 )
 	{
 		printf( "Erreur de saisie\n" );
-		return 1;
+		return EXIT_FAILURE;
 	}
 
 	( EstPremier( i ) ) ? printf( "L'entier est premier\n" ) : printf( "L'entier n'est pas premier\n" );
 
-	return 0;
+	return EXIT_SUCCESS;
 }
 
 int EstPremier( int n )
@@ -26,16 +27,16 @@ int EstPremier( int n )
 
 	if ( n < 2 )
 	{
-		return 0;
+		return EXIT_SUCCESS;
 	}
 
 	for ( i = 2; i < n; ++i )
 	{
 		if ( n % i == 0 )
 		{
-			return 0;
+			return EXIT_SUCCESS;
 		}
 	}
 
-	return 1;
+	return EXIT_FAILURE;
 }

@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 int main( void )
 {
@@ -9,5 +10,5 @@ int main( void )
 	A1 = A2++ + 1;
 	printf( "A1 = %d, A2 = %d\n", A1, A2 );
 
-	return 0;
+	return EXIT_SUCCESS;
 }

@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 int main( void )
 {
@@ -11,7 +12,7 @@ int main( void )
 	if ( err != 1 )
 	{
 		printf( "Erreur de saisie\n" );
-		return 1;
+		return EXIT_FAILURE;
 	}
 
 	printf( "Entrez un second entier : " );
@@ -19,10 +20,10 @@ int main( void )
 	if ( err != 1 )
 	{
 		printf( "Erreur de saisie\n" );
-		return 1;
+		return EXIT_FAILURE;
 	}
 
 	entier1 > entier2 ? printf( "Le premier entier est plus grand que le second\n" ) : printf( "Le premier entier est plus petit que le second\n" );
 
-	return 0;
+	return EXIT_SUCCESS;
 }

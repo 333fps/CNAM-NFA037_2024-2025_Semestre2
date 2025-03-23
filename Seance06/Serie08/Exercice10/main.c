@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 void minmax( double* tableau, int taille, double* min, double* max );
 
@@ -15,7 +16,7 @@ int main( void )
 	printf( "Min: %f\n", min );
 	printf( "Max: %f\n", max );
 
-	return 0;
+	return EXIT_SUCCESS;
 }
 
 void minmax( double* tableau, int taille, double* min, double* max )

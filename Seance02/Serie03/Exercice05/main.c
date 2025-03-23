@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 int main( void )
 {
@@ -13,7 +14,7 @@ int main( void )
 	if ( err != 1 )
 	{
 		printf( "Erreur de saisie\n" );
-		return 1;
+		return EXIT_FAILURE;
 	}
 
 	printf( "Entrez la valeur de VAR2 : " );
@@ -22,12 +23,12 @@ int main( void )
 	if ( err != 1 )
 	{
 		printf( "Erreur de saisie\n" );
-		return 1;
+		return EXIT_FAILURE;
 	}
 
 	VAR1 > VAR2 ? ( VAR3 = VAR1 ) : ( VAR3 = VAR2 );
 
 	printf( "La valeur de VAR3 est : %f\n", (double)VAR3 );
 
-	return 0;
+	return EXIT_SUCCESS;
 }

@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 int syracuse( int n );
 
@@ -12,13 +13,13 @@ int main( void )
 	if ( err != 1 )
 	{
 		printf( "Erreur de saisie\n" );
-		return 1;
+		return EXIT_FAILURE;
 	}
 
 	printf( "Suite de Syracuse pour %d: ", n );
 	(void)syracuse( n );
 
-	return 0;
+	return EXIT_SUCCESS;
 }
 
 int syracuse( int n )
@@ -26,7 +27,7 @@ int syracuse( int n )
 	if ( n == 1 )
 	{
 		printf( "1\n" );
-		return 1;
+		return EXIT_FAILURE;
 	}
 	else
 	{

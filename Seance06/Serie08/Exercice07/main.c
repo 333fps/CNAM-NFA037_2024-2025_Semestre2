@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 void Permut( int* VAR1, int* VAR2 );
 
@@ -13,7 +14,7 @@ int main( void )
 	printf( "A vaut : %d\n ", A );
 	printf( "B vaut : %d\n ", B );
 
-	return 0;
+	return EXIT_SUCCESS;
 }
 
 void Permut( int* VAR1, int* VAR2 )

@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 double capital_a_terme( double capital, double taux, int annees );
 
@@ -14,7 +15,7 @@ int main( void )
 	if ( err != 1 )
 	{
 		printf( "Erreur de saisie\n" );
-		return 1;
+		return EXIT_FAILURE;
 	}
 
 	printf( "Entrez le taux d'intérêt: " );
@@ -22,7 +23,7 @@ int main( void )
 	if ( err != 1 )
 	{
 		printf( "Erreur de saisie\n" );
-		return 1;
+		return EXIT_FAILURE;
 	}
 
 	printf( "Entrez le nombre d'années: " );
@@ -30,12 +31,12 @@ int main( void )
 	if ( err != 1 )
 	{
 		printf( "Erreur de saisie\n" );
-		return 1;
+		return EXIT_FAILURE;
 	}
 
 	printf( "Capital à terme: %.2f\n", capital_a_terme( capitalInitial, taux, annees ) );
 
-	return 0;
+	return EXIT_SUCCESS;
 }
 
 double capital_a_terme( double capital, double taux, int annees )

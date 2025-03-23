@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 int nbChiffres( unsigned int );
 
@@ -12,22 +13,22 @@ int main( void )
 	if ( err != 1 )
 	{
 		printf( "Erreur de saisie\n" );
-		return 1;
+		return EXIT_FAILURE;
 	}
 
 	printf( "Nombre de chiffres de %u: %d\n", x, nbChiffres( x ) );
 
-	return 0;
+	return EXIT_SUCCESS;
 }
 
 int nbChiffres( unsigned int n )
 {
 	if ( n < 10 )
 	{
-		return 1;
+		return EXIT_FAILURE;
 	}
 	else
 	{
-		return 1 + nbChiffres( n / 10 );
+		return EXIT_FAILURE + nbChiffres( n / 10 );
 	}
 }

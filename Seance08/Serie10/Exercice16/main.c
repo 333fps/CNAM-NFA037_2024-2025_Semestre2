@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 #define FILENAME "Exercice16.txt"
 
@@ -14,7 +15,7 @@ int main( void )
 	if ( fichier == NULL )
 	{
 		printf( "Impossible d'ouvrir le fichier %s.\n", FILENAME );
-		return 1;
+		return EXIT_FAILURE;
 	}
 
 	while ( fscanf( fichier, "Candidat %d : %f\n", &candidat, &note ) == 2 )
@@ -35,5 +36,5 @@ int main( void )
 		printf( "La moyenne des %d candidats est de : %.2f\n", nombreNotes, (double)moyenne );
 	}
 
-	return 0;
+	return EXIT_SUCCESS;
 }

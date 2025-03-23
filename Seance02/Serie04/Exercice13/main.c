@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 int main( void )
 {
@@ -11,7 +12,7 @@ int main( void )
 	if ( err != 1 )
 	{
 		printf( "Erreur de saisie\n" );
-		return 1;
+		return EXIT_FAILURE;
 	}
 
 	printf( "*\n" );
@@ -26,5 +27,5 @@ int main( void )
 		printf( "*\n" );
 	}
 
-	return 0;
+	return EXIT_SUCCESS;
 }

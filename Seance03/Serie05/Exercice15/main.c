@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 int main( void )
 {
@@ -22,5 +23,5 @@ int main( void )
 
 	printf( "La moyenne d'age est: %.2f\n", (double)moyenne );
 
-	return 0;
+	return EXIT_SUCCESS;
 }

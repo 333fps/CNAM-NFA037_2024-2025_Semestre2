@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 int main( void )
 {
@@ -16,5 +17,5 @@ int main( void )
 	printf( "Nouvelle valeur de la variable: %d\n", a );
 	printf( "Contenu pointé par le pointeur: %d\n", *p );
 
-	return 0;
+	return EXIT_SUCCESS;
 }

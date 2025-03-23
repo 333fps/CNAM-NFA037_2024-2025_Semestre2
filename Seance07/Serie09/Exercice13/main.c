@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
 
@@ -83,7 +84,7 @@ int main( void )
 		}
 	} while ( choix != 0 );
 
-	return 0;
+	return EXIT_SUCCESS;
 }
 
 void afficherStats( const char* texte )

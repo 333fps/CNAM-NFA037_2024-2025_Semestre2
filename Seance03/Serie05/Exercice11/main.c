@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 int main( void )
 {
@@ -15,7 +16,7 @@ int main( void )
 		if ( err != 1 )
 		{
 			printf( "Erreur de lecture\n" );
-			return 1;
+			return EXIT_FAILURE;
 		}
 
 		Tableau2[sizeof( Tableau1 ) / sizeof( float ) - i - 1] = Tableau1[i];
@@ -33,5 +34,5 @@ int main( void )
 		printf( "%d\t", Tableau2[i] );
 	}
 
-	return 0;
+	return EXIT_SUCCESS;
 }

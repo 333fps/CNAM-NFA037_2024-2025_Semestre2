@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 int main( void )
 {
@@ -11,5 +12,5 @@ int main( void )
 		printf( "Tableau[%d] = %d\n", i - 1, Tableau[i - 1] );
 	}
 
-	return 0;
+	return EXIT_SUCCESS;
 }

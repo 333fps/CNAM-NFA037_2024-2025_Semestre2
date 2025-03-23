@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 void Affiche( int T[], int n );
 int RangPlusGrand( int T[], int n );
@@ -16,13 +17,13 @@ int main( void )
 		if ( err != 1 )
 		{
 			printf( "Erreur de saisie\n" );
-			return 1;
+			return EXIT_FAILURE;
 		}
 	}
 
 	Affiche( T, 5 );
 	printf( "Le rang du plus grand élément est %d\n", RangPlusGrand( T, 5 ) );
-	return 0;
+	return EXIT_SUCCESS;
 }
 
 void Affiche( int T[], int n )

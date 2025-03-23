@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 #define MAX_LENGTH 200
 
@@ -37,7 +38,7 @@ int main( void )
 
 	Cherche( chaine, sous_chaine );
 
-	return 0;
+	return EXIT_SUCCESS;
 }
 
 void Cherche( char* chaine, char* sous_chaine )
@@ -79,9 +80,9 @@ int Identique( char* debut_chaine, char* sous_chaine )
 	{
 		if ( debut_chaine[i] == '\0' || debut_chaine[i] != sous_chaine[i] )
 		{
-			return 0;
+			return EXIT_SUCCESS;
 		}
 	}
 
-	return 1;
+	return EXIT_FAILURE;
 }

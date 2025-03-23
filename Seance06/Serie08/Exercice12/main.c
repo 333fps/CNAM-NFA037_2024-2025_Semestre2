@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 int main( void )
 {
@@ -20,5 +21,5 @@ int main( void )
 			printf( "Contenu de T[%d]: %d\n", i, *P[i] );
 		}
 	}
-	return 0;
+	return EXIT_SUCCESS;
 }

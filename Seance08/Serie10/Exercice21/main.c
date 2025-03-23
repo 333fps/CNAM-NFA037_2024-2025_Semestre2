@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
 
@@ -18,14 +19,14 @@ int main( void )
 	if ( scanf( "%49s", mot ) != 1 )
 	{
 		printf( "Erreur lors de la saisie du mot.\n" );
-		return 1;
+		return EXIT_FAILURE;
 	}
 
 	fichier = fopen( FILENAME, "r" );
 	if ( fichier == NULL )
 	{
 		printf( "Impossible d'ouvrir le fichier %s.\n", FILENAME );
-		return 1;
+		return EXIT_FAILURE;
 	}
 
 	occurrences = compteOccurrences( fichier, mot );
@@ -33,7 +34,7 @@ int main( void )
 	printf( "Le mot \"%s\" apparait %d fois dans le fichier.\n", mot, occurrences );
 
 	fclose( fichier );
-	return 0;
+	return EXIT_SUCCESS;
 }
 
 int compteOccurrences( FILE* fichier, const char* mot )

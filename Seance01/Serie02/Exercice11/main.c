@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 
 #define MAX_NOM 10
@@ -15,11 +16,11 @@ int main( void )
 	if ( err != 1 )
 	{
 		printf( "Erreur de saisie\n" );
-		return 1;
+		return EXIT_FAILURE;
 	}
 
 	longueur = strlen( prenom );
 	printf( "Votre prénom '%s' contient %u caractères.\n", prenom, (unsigned int)longueur );
 
-	return 0;
+	return EXIT_SUCCESS;
 }

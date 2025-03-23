@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 #ifdef __clang__
 #	pragma clang diagnostic push
@@ -26,7 +27,7 @@ int main( void )
 	(void)scanf( "%d", &a );
 	printf( "Valeur de a saisie : %d\n", a );
 	printf( "Valeur renvoyee apres execution de la fontion Modif : %d\n", Modif() );
-	return 0;
+	return EXIT_SUCCESS;
 }
 
 int Modif( void )

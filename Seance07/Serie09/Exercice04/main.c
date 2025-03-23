@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 
 #define MAX_LENGTH 100
@@ -46,5 +47,5 @@ int main( void )
 		printf( "\nLe caractère '%c' n'a pas été trouvé dans la chaîne.\n", caractere );
 	}
 
-	return 0;
+	return EXIT_SUCCESS;
 }

@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 unsigned sommeChiffres( unsigned int );
 
@@ -12,12 +13,12 @@ int main( void )
 	if ( err != 1 )
 	{
 		printf( "Erreur de saisie\n" );
-		return 1;
+		return EXIT_FAILURE;
 	}
 
 	printf( "Somme des chiffres de %u: %u\n", x, sommeChiffres( x ) );
 
-	return 0;
+	return EXIT_SUCCESS;
 }
 
 unsigned sommeChiffres( unsigned n )

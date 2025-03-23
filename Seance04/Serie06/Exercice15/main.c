@@ -15,20 +15,20 @@ int main( void )
 	if ( err != 1 )
 	{
 		printf( "Erreur de saisie\n" );
-		return 1;
+		return EXIT_FAILURE;
 	}
 
 	Tab = (float*)malloc( (size_t)n * sizeof( float ) );
 	if ( Tab == NULL )
 	{
 		printf( "Erreur d'allocation\n" );
-		return 1;
+		return EXIT_FAILURE;
 	}
 
 	Modif( Tab, n );
 	Affiche( Tab, n );
 
-	return 0;
+	return EXIT_SUCCESS;
 }
 
 void Affiche( float T[], int n )

@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 
 #define FILENAME "Exercice22.dat"
@@ -14,7 +15,7 @@ int main( void )
 
 	Mot_3( FILENAME );
 
-	return 0;
+	return EXIT_SUCCESS;
 }
 
 void Ecrit_Mots( const char* nomFichier )

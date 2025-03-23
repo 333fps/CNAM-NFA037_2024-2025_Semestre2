@@ -1,7 +1,8 @@
 #include <stdio.h>
-#include <string.h>
+#include <stdlib.h>
 
 #define FILENAME "Exercice13.txt"
+#define SEARCHED_CHAR 5
 
 int main( void )
 {
@@ -14,17 +15,28 @@ int main( void )
 	{
 		printf( "Impossible d'ouvrir le fichier %s.\n", FILENAME );
 
-		return 1;
+		return EXIT_FAILURE;
 	}
 
-	while ( !feof( file ) && numChar < 5 )
+	while ( numChar < SEARCHED_CHAR )
 	{
 		c = fgetc( file );
+		if ( c == EOF )
+		{
+			printf( "Le fichier contient moins de %d caractères\n", SEARCHED_CHAR );
+			fclose( file );
+			return EXIT_FAILURE;
+		}
 		++numChar;
 	}
-	printf( "Le cinquième caractère est %c", (char)c );
 
-	fclose( file );
+	printf( "Le caractère #%d est: %c", SEARCHED_CHAR, (char)c );
 
-	return 0;
+	if ( fclose( file ) == EOF )
+	{
+		printf( "Erreur lors de la fermeture du fichier %s\n", FILENAME );
+		return EXIT_FAILURE;
+	}
+
+	return EXIT_SUCCESS;
 }

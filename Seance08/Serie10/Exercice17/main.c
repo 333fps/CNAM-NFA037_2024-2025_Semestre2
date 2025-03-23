@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 #define FILENAME "Exercice17.txt"
 
@@ -12,7 +13,7 @@ int main( void )
 	if ( file == NULL )
 	{
 		printf( "Error while opening the file %s\n", FILENAME );
-		return 1;
+		return EXIT_FAILURE;
 	}
 
 	while ( fscanf( file, "%s", word ) != EOF )
@@ -25,5 +26,5 @@ int main( void )
 		}
 	}
 
-	return 0;
+	return EXIT_SUCCESS;
 }

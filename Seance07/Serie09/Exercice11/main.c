@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 struct Date
 {
@@ -92,5 +93,5 @@ int main( void )
 		}
 	}
 
-	return 0;
+	return EXIT_SUCCESS;
 }

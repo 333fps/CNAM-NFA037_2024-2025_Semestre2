@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 int main( void )
 {
@@ -36,5 +37,5 @@ int main( void )
 		printf( "Vous souhaitez retirer %d euros. Tiens voilà tes %d dollars.\n", montantAretirer, montantAretirer );
 	}
 
-	return 0;
+	return EXIT_SUCCESS;
 }

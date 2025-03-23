@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <limits.h>
 
 unsigned long factorielle( unsigned );
@@ -13,18 +14,18 @@ int main( void )
 	if ( err != 1 )
 	{
 		printf( "Erreur de saisie\n" );
-		return 1;
+		return EXIT_FAILURE;
 	}
 
 	if ( a > 12 )
 	{
 		printf( "Erreur: La factorielle de %u dépasse les limites du type\n", a );
-		return 1;
+		return EXIT_FAILURE;
 	}
 
 	printf( "La factorielle de %u est %lu\n", a, factorielle( a ) );
 
-	return 0;
+	return EXIT_SUCCESS;
 }
 
 unsigned long factorielle( unsigned a )

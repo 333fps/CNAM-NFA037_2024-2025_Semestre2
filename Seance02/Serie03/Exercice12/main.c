@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 int main( void )
 {
@@ -11,16 +12,16 @@ int main( void )
 	if ( err != 1 )
 	{
 		printf( "Erreur de lecture\n" );
-		return 1;
+		return EXIT_FAILURE;
 	}
 
 	if ( nombreDeLivres < 0 )
 	{
 		printf( "Erreur: le nombre de livres ne peut pas être négatif\n" );
-		return 1;
+		return EXIT_FAILURE;
 	}
 
 	nombreDeLivres > 1 ? printf( "Vous possédez %d livres\n", nombreDeLivres ) : printf( "Vous possédez %d livre\n", nombreDeLivres );
 
-	return 0;
+	return EXIT_SUCCESS;
 }

@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 int main( void )
 {
@@ -10,7 +11,7 @@ int main( void )
 	if ( err != 1 )
 	{
 		printf( "Erreur de saisie\n" );
-		return 1;
+		return EXIT_FAILURE;
 	}
 
 	switch ( choix )
@@ -31,5 +32,5 @@ int main( void )
 			printf( "Vous avez choisi %d : Choix de boisson non valide !\n", choix );
 	}
 
-	return 0;
+	return EXIT_SUCCESS;
 }

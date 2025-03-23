@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
 
@@ -14,7 +15,7 @@ int main( void )
 	printf( "Le mot saisi contient %d lettres et %d voyelles.\n",
 		(int)strlen( mot ), NbVoyelles( mot ) );
 
-	return 0;
+	return EXIT_SUCCESS;
 }
 
 int NbVoyelles( char mot[] )

@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 int main( void )
 {
@@ -10,5 +11,5 @@ int main( void )
 
 	printf( "La somme de FF et GG est : %f\n", (double)( FF + GG ) );
 
-	return 0;
+	return EXIT_SUCCESS;
 }

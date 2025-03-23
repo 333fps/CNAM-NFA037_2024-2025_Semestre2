@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 int main( void )
 {
@@ -6,5 +7,5 @@ int main( void )
 	lettre = 'C';
 	printf( "La lettre est %c.\n", lettre );
 
-	return 0;
+	return EXIT_SUCCESS;
 }

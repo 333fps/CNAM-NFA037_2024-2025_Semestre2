@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <limits.h>
 
 int modulo( int, int );
@@ -13,7 +14,7 @@ int main( void )
 	if ( err != 1 )
 	{
 		printf( "Erreur de saisie\n" );
-		return 1;
+		return EXIT_FAILURE;
 	}
 
 	printf( "Entrez le second réel b: " );
@@ -21,12 +22,12 @@ int main( void )
 	if ( err != 1 )
 	{
 		printf( "Erreur de saisie\n" );
-		return 1;
+		return EXIT_FAILURE;
 	}
 
 	printf( "Le modulo de %d/%d est %d\n", a, b, modulo( a, b ) );
 
-	return 0;
+	return EXIT_SUCCESS;
 }
 
 int modulo( int a, int b )
@@ -34,7 +35,7 @@ int modulo( int a, int b )
 	if ( b == 0 )
 	{
 		printf( "Erreur: Division par zéro\n" );
-		return 0;
+		return EXIT_SUCCESS;
 	}
 
 	return a - b * ( a / b );

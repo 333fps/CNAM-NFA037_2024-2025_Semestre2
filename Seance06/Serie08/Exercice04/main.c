@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 int main( void )
 {
@@ -8,5 +9,5 @@ int main( void )
 	a = 45;
 	*P = 46;
 	printf( " le contenu de a vaut maintenant : %d\n ", a );
-	return 0;
+	return EXIT_SUCCESS;
 }

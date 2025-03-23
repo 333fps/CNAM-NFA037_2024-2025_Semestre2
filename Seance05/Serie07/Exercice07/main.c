@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 int n_iemeNbPair( int n );
 
@@ -12,19 +13,19 @@ int main( void )
 	if ( err != 1 )
 	{
 		printf( "Erreur de saisie\n" );
-		return 1;
+		return EXIT_FAILURE;
 	}
 
 	printf( "Le %d-ième nombre pair est %d\n", x, n_iemeNbPair( x ) );
 
-	return 0;
+	return EXIT_SUCCESS;
 }
 
 int n_iemeNbPair( int n )
 {
 	if ( n == 1 )
 	{
-		return 0;
+		return EXIT_SUCCESS;
 	}
 	else
 	{

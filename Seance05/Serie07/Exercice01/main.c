@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 unsigned long Facto( int );
 
@@ -12,18 +13,18 @@ int main( void )
 	if ( err != 1 )
 	{
 		printf( "Erreur de saisie\n" );
-		return 1;
+		return EXIT_FAILURE;
 	}
 
 	printf( "Factorielle de %d: %lu\n", i, Facto( i ) );
 
-	return 0;
+	return EXIT_SUCCESS;
 }
 
 unsigned long Facto( int n )
 {
 	if ( n == 0 )
-		return 1;
+		return EXIT_FAILURE;
 	else
 		return (unsigned long)n * Facto( n - 1 );
 }

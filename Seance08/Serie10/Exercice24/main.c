@@ -16,7 +16,7 @@ int main( void )
 
 	Plus_Grand( FILENAME );
 
-	return 0;
+	return EXIT_SUCCESS;
 }
 
 void Ecrit_200( const char* nomFichier )

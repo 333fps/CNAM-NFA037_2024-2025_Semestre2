@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 
 #define FILENAME "Exercice15.txt"
@@ -14,7 +15,7 @@ int main( void )
 	if ( file == NULL )
 	{
 		printf( "Impossible d'ouvrir le fichier %s.\n", FILENAME );
-		return 1;
+		return EXIT_FAILURE;
 	}
 
 	while ( fgets( buffer, MAX_LENGTH, file ) != NULL )
@@ -38,7 +39,7 @@ int main( void )
 		{
 			printf( "Numéro invalide\n" );
 			fclose( file );
-			return 1;
+			return EXIT_FAILURE;
 		}
 
 		rewind( file );
@@ -61,6 +62,11 @@ int main( void )
 		printf( "Le nombre est: %s\n", buffer );
 	}
 
-	fclose( file );
-	return 0;
+	if ( fclose( file ) == EOF )
+	{
+		printf( "Erreur lors de la fermeture du fichier %s\n", FILENAME );
+		return EXIT_FAILURE;
+	}
+
+	return EXIT_SUCCESS;
 }

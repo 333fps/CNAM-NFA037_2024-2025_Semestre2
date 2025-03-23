@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 void Moyenne( int T[], int n );
 
@@ -15,13 +16,13 @@ int main( void )
 		if ( err != 1 )
 		{
 			printf( "Erreur de saisie\n" );
-			return 1;
+			return EXIT_FAILURE;
 		}
 	}
 
 	Moyenne( T, 5 );
 
-	return 0;
+	return EXIT_SUCCESS;
 }
 
 void Moyenne( int T[], int n )

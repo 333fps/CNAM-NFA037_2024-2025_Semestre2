@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 double hauteur_balle( double hauteur, int rebonds );
 
@@ -13,7 +14,7 @@ int main( void )
 	if ( err != 1 )
 	{
 		printf( "Erreur de saisie\n" );
-		return 1;
+		return EXIT_FAILURE;
 	}
 
 	printf( "Entrez le nombre de rebonds: " );
@@ -21,12 +22,12 @@ int main( void )
 	if ( err != 1 )
 	{
 		printf( "Erreur de saisie\n" );
-		return 1;
+		return EXIT_FAILURE;
 	}
 
 	printf( "Hauteur de la balle après %d rebonds: %.2f\n", rebonds, hauteur_balle( hauteur, rebonds ) );
 
-	return 0;
+	return EXIT_SUCCESS;
 }
 
 double hauteur_balle( double hauteur, int rebonds )

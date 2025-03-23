@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 int somme_chiffres( int nombre );
 int est_harshad( int nombre );
@@ -14,7 +15,7 @@ int main( void )
 	if ( err != 1 || nombre <= 0 )
 	{
 		printf( "Erreur: veuillez entrer un nombre entier positif\n" );
-		return 1;
+		return EXIT_FAILURE;
 	}
 
 	if ( est_harshad( nombre ) )
@@ -22,7 +23,7 @@ int main( void )
 	else
 		printf( "%d n'est pas un nombre Harshad\n", nombre );
 
-	return 0;
+	return EXIT_SUCCESS;
 }
 
 int somme_chiffres( int nombre )

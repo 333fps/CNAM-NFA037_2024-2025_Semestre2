@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 enum Boolean
 {
@@ -12,5 +13,5 @@ int main( void )
 
 	( b == TRUE ) ? printf( "TRUE\n" ) : printf( "FALSE\n" );
 
-	return 0;
+	return EXIT_SUCCESS;
 }
