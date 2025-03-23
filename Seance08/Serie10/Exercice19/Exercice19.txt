@@ -1,0 +1,7 @@
+La programmation en langage C est fondamentale dans l'informatique moderne.
+Créé dans les années 1970, ce langage reste essentiel pour développer des applications performantes.
+Il permet un contrôle précis de la mémoire et des ressources système.
+Les fichiers sont une fonctionnalité importante du langage C.
+Ils permettent de stocker et de récupérer des données de manière persistante.
+Les opérations sur les fichiers incluent l'ouverture, la lecture, l'écriture et la fermeture.
+La gestion correcte des fichiers est essentielle pour éviter les fuites de mémoire.

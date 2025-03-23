@@ -1,0 +1,6 @@
+Candidat 1 : 12.0
+Candidat 2 : 14.5
+Candidat 3 : 0.5
+Candidat 4 : 16.0
+Candidat 5 : 12.5
+Candidat 6 : 12.5
