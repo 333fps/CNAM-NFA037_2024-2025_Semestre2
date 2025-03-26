@@ -5,7 +5,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define NUM_NODE 5
+#define NUM_NODE 10
+
+enum Result
+{
+	SUCCESS = 0,
+	FAILURE
+};
 
 typedef struct Node Node;
 struct Node
@@ -21,13 +27,14 @@ struct Stack
 };
 
 void Push( Stack* stack, int value );
-int Pop( Stack* stack );
+enum Result Pop( Stack* stack, int* out );
+void PrintStack( const Stack* stack );
+void PrintNode( const Node* node );
 void Free( Stack* stack );
 
 int main( void )
 {
-	Stack stack;
-	Node* cursor = NULL;
+	Stack stack = { NULL };
 
 	int i;
 	for ( i = 0; i < NUM_NODE; ++i )
@@ -35,15 +42,21 @@ int main( void )
 		Push( &stack, i );
 	}
 
-	Pop( &stack );
-
-	cursor = stack.top;
-	while ( cursor != NULL )
 	{
-		printf( "%d -> ", cursor->value );
-		cursor = cursor->next;
+		int value;
+		enum Result result = FAILURE;
+		result = Pop( &stack, &value );
+		if ( result == FAILURE )
+		{
+			printf( "Failed to pop element\n" );
+		}
+		else
+		{
+			printf( "Successfully popped value: %d\n", value );
+		}
 	}
-	printf( " NULL" );
+
+	PrintStack( &stack );
 
 	Free( &stack );
 
@@ -64,22 +77,62 @@ void Push( Stack* stack, int value )
 	stack->top = newNode;
 }
 
-int Pop( Stack* stack )
+enum Result Pop( Stack* stack, int* out )
 {
-	if ( stack->top == NULL )
+	Node* topNode = stack->top;
+
+	if ( topNode == NULL )
 	{
 		printf( "Pop failed: Stack is empty\n" );
-		return -1;
+		return FAILURE;
 	}
 
-	Node* topNode = stack->top;
-	int value = topNode->value;
+	*out = topNode->value;
 
 	stack->top = topNode->next;
 
 	free( topNode );
 
-	return value;
+	return SUCCESS;
+}
+
+void PrintNode( const Node* node )
+{
+	if ( node == NULL )
+	{
+		printf( "NULL\n" );
+		return;
+	}
+	else
+	{
+		printf( "%d", node->value );
+	}
+}
+
+void PrintStack( const Stack* stack )
+{
+	static int first = 1;
+	static Node* current = NULL;
+
+	if ( first )
+	{
+		first = 0;
+		current = stack->top;
+	}
+
+	if ( current == NULL )
+	{
+		printf( "NULL\n" );
+		first = 1;
+		return;
+	}
+
+	PrintNode( current );
+	printf( " -> " );
+
+	current = current->next;
+
+	PrintStack( stack );
 }
 
 void Free( Stack* stack )

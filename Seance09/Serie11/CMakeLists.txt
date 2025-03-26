@@ -8,3 +8,8 @@ endif()
 
 add_subdirectory(Exercice_cours_Queue)
 add_subdirectory(Exercice_cours_Stack)
+
+add_subdirectory(Exercice01)
+add_subdirectory(Exercice02)
+add_subdirectory(Exercice03)
+
