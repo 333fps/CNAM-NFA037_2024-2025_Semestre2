@@ -100,6 +100,11 @@ int Count( Queue* queue )
 
 void Enqueue( Queue* queue, int value )
 {
+	if ( queue == NULL )
+	{
+		return;
+	}
+
 	Node* newNode = (Node*)malloc( sizeof( *newNode ) );
 	if ( !newNode )
 	{
@@ -124,6 +129,11 @@ void Enqueue( Queue* queue, int value )
 
 enum Result Dequeue( Queue* queue, int* out )
 {
+	if ( queue == NULL || out == NULL )
+	{
+		return FAILURE;
+	}
+
 	Node* cursor = queue->head;
 
 	if ( cursor == NULL )
@@ -142,6 +152,7 @@ enum Result Dequeue( Queue* queue, int* out )
 	}
 
 	free( cursor );
+	cursor = NULL;
 
 	return SUCCESS;
 }
@@ -161,6 +172,12 @@ void PrintNode( const Node* node )
 
 void PrintQueue( const Queue* queue )
 {
+	if ( queue == NULL )
+	{
+		printf( "NULL\n" );
+		return;
+	}
+
 	static int first = 1;
 	static Node* current = NULL;
 
@@ -187,6 +204,11 @@ void PrintQueue( const Queue* queue )
 
 void Free( Queue* queue )
 {
+	if ( queue == NULL )
+	{
+		return;
+	}
+
 	Node* current = queue->head;
 	Node* next;
 
