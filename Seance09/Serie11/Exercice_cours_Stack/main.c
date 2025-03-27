@@ -137,15 +137,21 @@ void PrintStack( const Stack* stack )
 
 void Free( Stack* stack )
 {
-	Node* current = stack->top;
-	Node* next;
-
-	while ( current != NULL )
+	if ( stack == NULL )
 	{
-		next = current->next;
-		free( current );
-		current = next;
+		return;
 	}
+	{
+		Node* current = stack->top;
+		Node* next;
 
-	stack->top = NULL;
+		while ( current != NULL )
+		{
+			next = current->next;
+			free( current );
+			current = next;
+		}
+
+		stack->top = NULL;
+	}
 }

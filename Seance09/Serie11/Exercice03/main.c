@@ -108,25 +108,27 @@ void Enqueue( Queue* queue, int value )
 		return;
 	}
 
-	Node* newNode = (Node*)malloc( sizeof( *newNode ) );
-	if ( !newNode )
 	{
-		printf( "Memory allocation failed\n" );
-		return;
-	}
+		Node* newNode = (Node*)malloc( sizeof( *newNode ) );
+		if ( !newNode )
+		{
+			printf( "Memory allocation failed\n" );
+			return;
+		}
 
-	newNode->value = value;
-	newNode->next = NULL;
+		newNode->value = value;
+		newNode->next = NULL;
 
-	if ( queue->tail == NULL )
-	{
-		queue->head = newNode;
-		queue->tail = newNode;
-	}
-	else
-	{
-		queue->tail->next = newNode;
-		queue->tail = newNode;
+		if ( queue->tail == NULL )
+		{
+			queue->head = newNode;
+			queue->tail = newNode;
+		}
+		else
+		{
+			queue->tail->next = newNode;
+			queue->tail = newNode;
+		}
 	}
 }
 
@@ -136,28 +138,29 @@ enum Result Dequeue( Queue* queue, int* out )
 	{
 		return FAILURE;
 	}
-
-	Node* cursor = queue->head;
-
-	if ( cursor == NULL )
 	{
-		printf( "Dequeue failed: Queue is empty\n" );
-		return FAILURE;
+		Node* cursor = queue->head;
+
+		if ( cursor == NULL )
+		{
+			printf( "Dequeue failed: Queue is empty\n" );
+			return FAILURE;
+		}
+
+		*out = cursor->value;
+
+		queue->head = cursor->next;
+
+		if ( queue->head == NULL )
+		{
+			queue->tail = NULL;
+		}
+
+		free( cursor );
+		cursor = NULL;
+
+		return SUCCESS;
 	}
-
-	*out = cursor->value;
-
-	queue->head = cursor->next;
-
-	if ( queue->head == NULL )
-	{
-		queue->tail = NULL;
-	}
-
-	free( cursor );
-	cursor = NULL;
-
-	return SUCCESS;
 }
 
 void PrintNode( const Node* node )
@@ -180,29 +183,30 @@ void PrintQueue( const Queue* queue )
 		printf( "NULL\n" );
 		return;
 	}
-
-	static int first = 1;
-	static Node* current = NULL;
-
-	if ( first )
 	{
-		first = 0;
-		current = queue->head;
+		static int first = 1;
+		static Node* current = NULL;
+
+		if ( first )
+		{
+			first = 0;
+			current = queue->head;
+		}
+
+		if ( current == NULL )
+		{
+			printf( "NULL\n" );
+			first = 1;
+			return;
+		}
+
+		PrintNode( current );
+		printf( " -> " );
+
+		current = current->next;
+
+		PrintQueue( queue );
 	}
-
-	if ( current == NULL )
-	{
-		printf( "NULL\n" );
-		first = 1;
-		return;
-	}
-
-	PrintNode( current );
-	printf( " -> " );
-
-	current = current->next;
-
-	PrintQueue( queue );
 }
 
 void Free( Queue* queue )
@@ -212,16 +216,18 @@ void Free( Queue* queue )
 		return;
 	}
 
-	Node* current = queue->head;
-	Node* next;
-
-	while ( current != NULL )
 	{
-		next = current->next;
-		free( current );
-		current = next;
-	}
+		Node* current = queue->head;
+		Node* next;
 
-	queue->head = NULL;
-	queue->tail = NULL;
+		while ( current != NULL )
+		{
+			next = current->next;
+			free( current );
+			current = next;
+		}
+
+		queue->head = NULL;
+		queue->tail = NULL;
+	}
 }

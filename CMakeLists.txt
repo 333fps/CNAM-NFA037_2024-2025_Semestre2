@@ -59,6 +59,8 @@ set(MSVC_C_COMPILE_FLAGS
 	/wd4820					# Padding added
 	/wd5045					# Spectre mitigation
 	/wd6054					# String may not be zero-terminated
+
+	/analyze:WX- /analyze:external- /analyze
 )
 
 set(CLANG_C_COMPILE_FLAGS
@@ -83,6 +85,8 @@ set(GCC_C_COMPILE_FLAGS
 	-Wformat-security		# Format string security
 	-Warray-bounds			# Array bounds checking
 	-Wstack-protector		# Stack protection
+	-Wshadow
+	-Wstrict-prototypes
 	-fstack-protector-all	# Enable stack protection (GCC specific)
 
 	-Wno-covered-switch-default
@@ -153,12 +157,12 @@ add_compile_options(
 	"$<$<COMPILE_LANGUAGE:CXX>:${CXX_COMPILE_FLAGS}>"
 )
 
-#add_subdirectory(Seance01)
-#add_subdirectory(Seance02)
-#add_subdirectory(Seance03)
-#add_subdirectory(Seance04)
-#add_subdirectory(Seance05)
-#add_subdirectory(Seance06)
-#add_subdirectory(Seance07)
-#add_subdirectory(Seance08)
+add_subdirectory(Seance01)
+add_subdirectory(Seance02)
+add_subdirectory(Seance03)
+add_subdirectory(Seance04)
+add_subdirectory(Seance05)
+add_subdirectory(Seance06)
+add_subdirectory(Seance07)
+add_subdirectory(Seance08)
 add_subdirectory(Seance09)

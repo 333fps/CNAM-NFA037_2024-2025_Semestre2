@@ -142,16 +142,22 @@ void PrintQueue( const Queue* queue )
 
 void Free( Queue* queue )
 {
-	Node* current = queue->head;
-	Node* next;
-
-	while ( current != NULL )
+	if ( queue == NULL )
 	{
-		next = current->next;
-		free( current );
-		current = next;
+		return;
 	}
+	{
+		Node* current = queue->head;
+		Node* next;
 
-	queue->head = NULL;
-	queue->tail = NULL;
+		while ( current != NULL )
+		{
+			next = current->next;
+			free( current );
+			current = next;
+		}
+
+		queue->head = NULL;
+		queue->tail = NULL;
+	}
 }
