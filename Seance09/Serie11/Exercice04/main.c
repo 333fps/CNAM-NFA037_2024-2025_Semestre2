@@ -23,7 +23,7 @@ struct Queue
 	Node* tail;
 };
 
-int Count( Queue* queue );
+int Count( const Queue* queue );
 void Enqueue( Queue* queue, int value );
 enum Result Dequeue( Queue* queue, int* out );
 void PrintNode( const Node* node );
@@ -85,7 +85,7 @@ int main( void )
 	return EXIT_SUCCESS;
 }
 
-int Count( Queue* queue )
+int Count( const Queue* queue )
 {
 	static int first = 1;
 	static Node* current = NULL;

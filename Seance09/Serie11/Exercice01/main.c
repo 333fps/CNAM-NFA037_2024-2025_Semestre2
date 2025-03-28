@@ -72,26 +72,33 @@ void Enqueue( Queue* queue, int value )
 
 enum Result Dequeue( Queue* queue, int* out )
 {
-	Node* cursor = queue->head;
-
-	if ( cursor == NULL )
+	if ( queue == NULL || out == NULL )
 	{
-		printf( "Dequeue failed: Queue is empty\n" );
 		return FAILURE;
 	}
-
-	*out = cursor->value;
-
-	queue->head = cursor->next;
-
-	if ( queue->head == NULL )
 	{
-		queue->tail = NULL;
+		Node* cursor = queue->head;
+
+		if ( cursor == NULL )
+		{
+			printf( "Dequeue failed: Queue is empty\n" );
+			return FAILURE;
+		}
+
+		*out = cursor->value;
+
+		queue->head = cursor->next;
+
+		if ( queue->head == NULL )
+		{
+			queue->tail = NULL;
+		}
+
+		free( cursor );
+		cursor = NULL;
+
+		return SUCCESS;
 	}
-
-	free( cursor );
-
-	return SUCCESS;
 }
 
 void PrintNode( const Node* node )
@@ -109,28 +116,35 @@ void PrintNode( const Node* node )
 
 void PrintQueue( const Queue* queue )
 {
-	static int first = 1;
-	static Node* current = NULL;
-
-	if ( first )
-	{
-		first = 0;
-		current = queue->head;
-	}
-
-	if ( current == NULL )
+	if ( queue == NULL )
 	{
 		printf( "NULL\n" );
-		first = 1;
 		return;
 	}
+	{
+		static int first = 1;
+		static Node* current = NULL;
 
-	PrintNode( current );
-	printf( " -> " );
+		if ( first )
+		{
+			first = 0;
+			current = queue->head;
+		}
 
-	current = current->next;
+		if ( current == NULL )
+		{
+			printf( "NULL\n" );
+			first = 1;
+			return;
+		}
 
-	PrintQueue( queue );
+		PrintNode( current );
+		printf( " -> " );
+
+		current = current->next;
+
+		PrintQueue( queue );
+	}
 }
 
 void Free( Queue* queue )

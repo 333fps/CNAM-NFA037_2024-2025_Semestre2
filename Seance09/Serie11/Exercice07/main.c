@@ -1,11 +1,7 @@
-/*
- * 	Queue / FIFO
- */
-
 #include <stdio.h>
 #include <stdlib.h>
 
-#define NUM_NODE 10
+#define NUM_NODE 5
 
 enum Result
 {
@@ -27,9 +23,7 @@ struct Queue
 	Node* tail;
 };
 
-int Count( const Queue* queue );
 void Enqueue( Queue* queue, int value );
-enum Result Dequeue( Queue* queue, int* out );
 void PrintNode( const Node* node );
 void PrintQueue( const Queue* queue );
 void Free( Queue* queue );
@@ -41,23 +35,14 @@ int main( void )
 	int i;
 	for ( i = 0; i < NUM_NODE; ++i )
 	{
-		Enqueue( &queue, i );
-	}
-
-	printf( "The queue contains %d elements\n", Count( &queue ) );
-
-	{
-		int value;
-		enum Result result = FAILURE;
-		result = Dequeue( &queue, &value );
-		if ( result == FAILURE )
+		int integer;
+		printf( "Enter an integer: " );
+		if ( scanf( "%d", &integer ) != 1 )
 		{
-			printf( "Failed to dequeue element\n" );
+			printf( "Input error.\n" );
+			return EXIT_FAILURE;
 		}
-		else
-		{
-			printf( "Successfully dequeued value: %d\n", value );
-		}
+		Enqueue( &queue, integer );
 	}
 
 	PrintQueue( &queue );
@@ -67,43 +52,13 @@ int main( void )
 	return EXIT_SUCCESS;
 }
 
-int Count( const Queue* queue )
-{
-	static int first = 1;
-	static Node* current = NULL;
-
-	if ( queue == NULL )
-	{
-		return 0;
-	}
-
-	if ( first )
-	{
-		first = 0;
-		current = queue->head;
-	}
-	else
-	{
-		current = current->next;
-	}
-
-	if ( current == NULL )
-	{
-		first = 1;
-		return 0;
-	}
-	else
-	{
-		return ( Count( queue ) + 1 );
-	}
-}
-
 void Enqueue( Queue* queue, int value )
 {
 	if ( queue == NULL )
 	{
 		return;
 	}
+
 	{
 		Node* newNode = (Node*)malloc( sizeof( *newNode ) );
 		if ( !newNode )
@@ -125,37 +80,6 @@ void Enqueue( Queue* queue, int value )
 			queue->tail->next = newNode;
 			queue->tail = newNode;
 		}
-	}
-}
-
-enum Result Dequeue( Queue* queue, int* out )
-{
-	if ( queue == NULL || out == NULL )
-	{
-		return FAILURE;
-	}
-	{
-		Node* cursor = queue->head;
-
-		if ( cursor == NULL )
-		{
-			printf( "Dequeue failed: Queue is empty\n" );
-			return FAILURE;
-		}
-
-		*out = cursor->value;
-
-		queue->head = cursor->next;
-
-		if ( queue->head == NULL )
-		{
-			queue->tail = NULL;
-		}
-
-		free( cursor );
-		cursor = NULL;
-
-		return SUCCESS;
 	}
 }
 
@@ -207,22 +131,41 @@ void PrintQueue( const Queue* queue )
 
 void Free( Queue* queue )
 {
+	static int first = 1;
+	static Node* current = NULL;
+	static Node* next = NULL;
+
 	if ( queue == NULL )
 	{
 		return;
 	}
+
+	if ( first )
 	{
-		Node* current = queue->head;
-		Node* next;
+		first = 0;
+		current = queue->head;
 
-		while ( current != NULL )
+		if ( current == NULL )
 		{
-			next = current->next;
-			free( current );
-			current = next;
+			first = 1;
+			return;
 		}
+	}
 
+	next = current->next;
+
+	free( current );
+
+	if ( next == NULL )
+	{
 		queue->head = NULL;
 		queue->tail = NULL;
+
+		first = 1;
+		return;
 	}
+
+	current = next;
+
+	Free( queue );
 }

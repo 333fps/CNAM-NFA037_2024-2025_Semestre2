@@ -92,6 +92,7 @@ enum Result Pop( Stack* stack, int* out )
 	stack->top = topNode->next;
 
 	free( topNode );
+	topNode = NULL;
 
 	return SUCCESS;
 }
@@ -111,28 +112,35 @@ void PrintNode( const Node* node )
 
 void PrintStack( const Stack* stack )
 {
-	static int first = 1;
-	static Node* current = NULL;
-
-	if ( first )
-	{
-		first = 0;
-		current = stack->top;
-	}
-
-	if ( current == NULL )
+	if ( stack == NULL )
 	{
 		printf( "NULL\n" );
-		first = 1;
 		return;
 	}
+	{
+		static int first = 1;
+		static Node* current = NULL;
 
-	PrintNode( current );
-	printf( " -> " );
+		if ( first )
+		{
+			first = 0;
+			current = stack->top;
+		}
 
-	current = current->next;
+		if ( current == NULL )
+		{
+			printf( "NULL\n" );
+			first = 1;
+			return;
+		}
 
-	PrintStack( stack );
+		PrintNode( current );
+		printf( " -> " );
+
+		current = current->next;
+
+		PrintStack( stack );
+	}
 }
 
 void Free( Stack* stack )

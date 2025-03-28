@@ -13,4 +13,6 @@ add_subdirectory(Exercice01)
 add_subdirectory(Exercice02)
 add_subdirectory(Exercice03)
 add_subdirectory(Exercice04)
+add_subdirectory(Exercice06)
+add_subdirectory(Exercice07)
 
